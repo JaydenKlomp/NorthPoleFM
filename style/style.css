@@ -1,0 +1,423 @@
+*{
+    color: white;
+}
+
+/* style of the body */
+body{
+    margin: 0;
+    background-color:rgb(10, 10, 10);
+    -webkit-user-select: none;
+    user-select: none;
+    width: 100vw;
+    height: 100vw;
+    overflow-x: visible;
+    display: block;  
+    background-attachment: fixed;
+
+}
+
+/* *{
+    outline: 2px solid red;
+    background-color: rgba(0, 128, 0, 0.199);
+} */
+
+::selection{
+    color: rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.noscroll::-webkit-scrollbar {
+    display: none;
+}
+/* style of the header to make it stay at the stop and space the navigation buttons evenly */
+header{
+    background: linear-gradient(-45deg, #1e182c, #3a293b, #34aa76, #25524b, #1a2132);
+    box-shadow: 2px 2px 10px 5px #000000;
+    animation: gradient 15s ease infinite;
+    background-size: 500% 200%;
+    position:fixed;
+    width: 98vw;
+    height: 7vh;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-grow: 0;
+    text-shadow: 0.2vh 0.2vh 0.5vh black;
+    font-size: 3vh;
+    font-weight: bolder;
+    font-family: 'Courier New', monospace;
+    top:0;
+    z-index: 20;
+    padding: 2vh 1vw;
+    opacity: 0.7;
+}
+
+header p:nth-child(7){
+    order: 4;
+}
+/* Animation for the background of the header */
+@keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }   
+    100% {
+      background-position: 0% 50%;
+    }
+    }
+/* styles all of the a elements in the header on the page */
+header a{
+    display: flex;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    text-shadow: 0.2vh 0.2vh 0.5vh black;
+    font-size: 2vh;
+    padding: 2vh 3vw;
+    margin-right: 1vh;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    transition: ease 0.2s ;
+}
+
+header:hover a{
+    transform:scale(0.8);
+    opacity:20%;
+}
+
+header a:hover{
+    color:white !important;
+    transform:scale(1) !important;
+    opacity:100% !important;
+}
+
+/* footer of the page */
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    z-index: 10;
+}
+/* all p elements inside the footer */
+footer p{
+    position: relative;
+    text-align: center;
+    background: linear-gradient(-45deg, #1e182c, #3a293b, #34aa76, #25524b, #1a2132);
+    animation: gradient 15s ease infinite;
+    background-size: 500% 200%;
+    margin: 0;
+    padding: 0.2vh 0.1vw;
+    font-family: 'Courier New', monospace;
+    font-size: 2vh;
+}
+
+.playlistContainer{
+    height: 145vh;
+    width: fit-content;
+    margin: 0vw auto;
+    margin-bottom: 10vh;
+    margin-top: 15vh;
+}
+/* the artist cover fotos */
+.artist{
+    margin-top: 8vh;
+    margin-bottom: 100px;
+    color:white;
+    width: fit-content;
+    height: fit-content;
+    overflow:hidden;
+    position:relative;
+    transition: 0.3s ease-in-out;
+}
+/* the div of the albums */
+.bg{
+    position: fixed;
+    inset: 0;
+    box-shadow: inset 0vh 0vh 5vh 1vh black;
+    z-index:-1;
+    /* border:2px solid rgb(255, 0, 0); */
+    background-size:cover;
+    background-repeat:no-repeat;
+    /* filter:blur(10px); */
+}
+/* the background image of the albums */
+.bgpl{
+    height: 50vh;
+    width: fit-content;
+    margin-bottom: 1vh;
+    background:rgb(0, 0, 0);
+    border: solid #000000;
+    position: relative;
+}
+
+.bgpl video{
+    width: inherit;
+    height: inherit;
+}
+
+.artistSelector{
+    height: 10vh;
+
+}
+
+/* title of albums */
+.title{
+    position: absolute;
+    justify-content: center;
+    z-index: 5;
+    font-weight: bold;
+    margin: 1vw;
+    font-size: 3vw;
+    font-family: 'Courier New', monospace;
+    text-shadow: 2px 5px 5px black;
+}
+
+.description{
+    position: relative;
+    padding: 15px;
+    width: 35vw;
+    justify-content: center;
+    z-index: 5;
+    font-weight: bold;
+    font-size: 1vw;
+    font-family: 'Courier New', monospace;
+    text-shadow: 2px 5px 5px black;
+    background-color: rgba(0, 0, 0, 0.445);
+    border: 2px solid rgb(247, 246, 246);
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+
+/* h1, h2{
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to bottom, white, white, white ,white, white, transparent, transparent);
+} */
+/* container of everything on home page */
+.homeContainer{
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    top: 0vh;
+    height: 100vh;
+    width: 100vw;
+}
+/* title and subtitle */
+.subTitle{
+    color: white;
+    position: relative;
+    top:35vh;
+    font-size: 3vh;
+    text-shadow: 0.3vh 0.3vh 1vh black;
+    cursor:default;
+}
+/* selects all the h1's in th subtitle */
+.subTitle h1{
+    font-weight: bold;
+    font-size: 6vh;
+}
+
+/* selects all the h2's in th subtitle */
+.subTitle h2{
+    font-weight: 500;
+    font-size: 4vh;
+}
+
+.playerContainer{
+    position: relative;
+    margin: auto;
+    margin-left: 5vh;
+    margin-top: 0;
+    transform: translate(0px, 17vh);
+}
+
+
+table{
+    color: white;
+    width: 50vw;
+    border-collapse: collapse;
+    stroke: 2px black;
+    font-size: 1.5vh;
+    font-family: 'Courier New', monospace;
+    text-shadow: 3px 3px 3px rgb(63, 50, 88);
+    margin: 0;
+}
+
+
+th{
+    text-align: start;
+    background-color: rgb(47,29,43);
+    box-shadow: inset 2px 2px 10px 1px rgba(0, 0, 0, 0.521);
+    padding: 1vh;
+    border: solid 1px white;
+}
+
+td{
+    padding: 1vh; 
+    border: solid 1px white;
+    /* background-color: rgb(180, 180, 180);
+    box-shadow: inset 2px 2px 10px 1px rgba(0, 0, 0, 0.699); */
+}
+
+tr{
+    background: linear-gradient(-45deg, #1e182c, #3a293b, #34aa76, #25524b, #1a2132);
+    box-shadow: inset 10px 10px 10px 100px #ffffff00;
+    animation: gradient 15s ease infinite;
+    background-size: 500% 200%;
+}
+
+tr:hover{
+    background-color: rgb(55,39,57);
+    box-shadow: inset 2px 2px 10px 1px white;
+}
+
+iframe{
+    width: 50vw;
+    height: 55vh;
+}
+
+.asDiv{
+    display: block;
+    margin: auto;
+    margin-right: 0;
+    margin-top: 0;
+    transform: translate(0px, 12vh);
+}
+
+.albumSelector{
+    width: 25vh;
+    height: 25vh;
+    margin-bottom: 2vh;
+    transition: 0.1s ease;
+    background-size: cover;
+    position: flex;
+    border: 3px solid white;
+    border-radius: 30px;
+}
+
+.albumA{
+    width: 25vh;
+    height: 25vh;
+    position: absolute;
+}
+
+
+.as:hover{
+    background-color: rgba(0, 0, 0, 0.365);
+    background-blend-mode: overlay;
+}
+
+
+#menu{ /*Aligns and positions everything on the screen */
+    justify-content: center;
+    display: flex;
+    text-decoration: none;
+    text-align: center;
+    
+}
+
+.menu-item a {
+    color: rgb(239, 238, 241); 
+    text-decoration: none;
+    transition: text-shadow 0.5s ease-out;
+}
+
+.menu-item { /*Style for the texts "Home, Playlists and About" */
+    height: 2vh;
+    position: relative;
+    margin-top: 8vh;
+    text-shadow: 0.4vw 0.4vw 0.4vw black;
+    cursor: pointer;
+    z-index: 3;
+    font-family: 'fantasy', monospace;
+    font-size: 8vh;
+    text-decoration: none;
+    transition: opacity 0.5s ease-in-out, font-size 0.5s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+#menu-items:hover .menu-item { /*Opacity of all texts change when hovering over 1 text*/
+    opacity: 0.3;
+    font-size: 7vh;
+    transition: font-size 0.5s ease-in-out, opacity 0.5s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+#menu-items:hover .menu-item:hover { /*The 1 text that is being hovered will keep the normal opacity*/
+    opacity: 1;
+    font-size: 9vh; 
+    text-shadow: 0.4vw 0.4vw 0.4vw rgb(29, 97, 67);
+    transition: font-size 0.5s ease-in-out, text-shadow 0.3s ease-in-out  ;
+}
+
+#background-image {
+    background-image: url(../media/img/background.avif);
+    background-position: center;
+    background-size: 120vmax;
+    height: 100%;
+    left: 0px;  
+    position: absolute;
+    transition: opacity 800ms ease, background-size 800ms ease, background-position 800ms ease;
+    width: 100%;
+    inset: 0;
+    z-index: 1;
+}
+
+#menu-items:hover ~ #background-image {
+    background-size: 150vmax;
+}
+
+#menu[data-active-index="0"] > #background-image {
+    background-position: center 30%;
+}
+
+#menu[data-active-index="1"] > #background-image {
+background-position: center 40%;
+}
+
+#menu[data-active-index="2"] > #background-image {
+background-position: center 50%;
+}
+
+#menu[data-active-index="3"] > #background-image {
+    background-position: center 60%;
+    }
+
+#menu[data-active-index="4"] > #background-image {
+    background-position: center 70%;
+    }
+
+.bgpl img{
+    z-index:2;
+    position: absolute;
+    inset: 0;
+    height: 50vh;
+    width: fit-content;
+}
+
+.welcomeheader{
+    position: relative;
+    justify-content: center;
+    display: flex;
+}
+.welcome{
+    width: 30vw;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #0000006b;
+    z-index: 10;
+    font-weight: bolder;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 15vh;
+    font-size: 2vw;
+    text-shadow: 0.4vw 0.4vw 0.4vw black;
+    font-family: 'fantasy', monospace;
+}
+
+
+
